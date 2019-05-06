@@ -44,6 +44,8 @@ class Tree(Debugger):
   def setData(self, obj):
     if type(obj) in ITER_TYPES + [dict]:
       self.data = obj
+    else:
+      raise ProgrammingError( "Invalid data type for Tree - not iterable." )
 
   def setObjectGetter(self, object_getter_cb):
     if callable(object_getter_cb):
